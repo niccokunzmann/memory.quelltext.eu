@@ -1,0 +1,54 @@
+.table {
+    margin: 30px;
+}
+
+.card {
+    margin: 20px;
+    width: 100px;
+    height: 100px;
+    text-align: center;
+    display: inline-block;
+    position: relative;
+    text-decoration: none;
+    color: saddlebrown;
+}
+
+.card img {
+    position: absolute;
+    top: -30px;
+    left: -30px;
+    height: 160px;
+    z-index: -1;
+}
+
+.line1 {
+    font-size: 80px;
+    line-height: 100px;
+}
+
+.line2 {
+    font-size: 40px;
+    line-height: 50px;
+}
+
+.line3 {
+    font-size: 27px;
+    line-height: 33px;
+}
+
+.content {
+    display: none;
+}
+
+.visible .content, .paired .content {
+    display: inline;
+}
+
+.card .content {
+    opacity: 0.7;
+}
+
+.paired {
+    opacity: 0.8;
+    color: gray;
+}
