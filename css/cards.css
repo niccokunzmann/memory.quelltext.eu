@@ -19,6 +19,7 @@
     left: -30px;
     height: 160px;
     z-index: -1;
+    filter: grayscale(50%); 
 }
 
 .line1 {
@@ -51,4 +52,9 @@
 .paired {
     opacity: 0.8;
     color: gray;
+}
+
+.paired img, .visible img {
+    filter: grayscale(0%); 
+    transform: scaleX(-1);
 }

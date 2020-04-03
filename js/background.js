@@ -23,6 +23,7 @@ function setTableBackground() {
     var chosenImage = BACKGROUND_IMAGES[Math.floor(Math.random() * BACKGROUND_IMAGES.length)];
     const backgroundImageString = 'url(' + BACKGROUND_IMAGE_FOLDER + "/" + chosenImage + ') no-repeat center center fixed';
     document.body.style.background = backgroundImageString;
+    document.body.style.backgroundSize = "cover";
 }
 
 function setCardBackground() {
