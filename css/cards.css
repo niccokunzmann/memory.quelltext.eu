@@ -11,6 +11,10 @@
     position: relative;
     text-decoration: none;
     color: saddlebrown;
+    animation-name: hideTheCard;
+    animation-duration: 1s;
+    transform: scaleX(-1);
+    filter: grayscale(50%);
 }
 
 .card img {
@@ -18,8 +22,8 @@
     top: -30px;
     left: -30px;
     height: 160px;
-    z-index: -1;
-    filter: grayscale(50%); 
+    z-index: -1; 
+    
 }
 
 .line1 {
@@ -37,24 +41,97 @@
     line-height: 33px;
 }
 
-.content {
-    display: none;
+.card .content {
+    opacity: 0;  /* content opacity */
+    animation-name: hideTheCardContent;
+    animation-duration: 1s;
+}
+
+.preload .card .content {
+    animation-duration: 0s;
 }
 
 .visible .content, .paired .content {
-    display: inline;
-}
-
-.card .content {
-    opacity: 0.7;
+    opacity: 0.6; /* content opacity */
+    animation-name: showTheCardContent;
+    animation-duration: 1s;
 }
 
 .paired {
-    opacity: 0.8;
+    opacity: 0.8; /* card opacity */
     color: gray;
 }
 
-.paired img, .visible img {
-    filter: grayscale(0%); 
-    transform: scaleX(-1);
+.paired, .visible { 
+    animation-name: showTheCard;
+    animation-duration: 1s;
+    filter: grayscale(0%);
+    transform: scaleX(1);
+}
+
+/* turn the card animation
+ * see https://www.w3schools.com/css/css3_animations.asp
+ */
+@keyframes showTheCard {
+    0% { 
+        transform: scaleX(-1);
+        filter: grayscale(50%);
+    }
+    49% {
+        filter: grayscale(50%);
+    }
+    50% {
+        filter: grayscale(0%);
+        transform: scaleX(0);
+    }
+    100% { 
+        transform: scaleX(1);
+
+    }
+}
+@keyframes hideTheCard {
+    0% { 
+        transform: scaleX(1);
+        filter: grayscale(0%);
+    }
+    49% {
+        filter: grayscale(0%);
+    }
+    50% {
+        transform: scaleX(0);
+        filter: grayscale(50%);
+    }
+    100% { 
+        transform: scaleX(-1);
+    }
+}
+
+@keyframes showTheCardContent {
+    0% {
+        opacity: 0;
+    }
+    49% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 0.6; /* content opacity */
+    }
+    100% {
+        opacity: 0.6; /* content opacity */
+    }
+}
+
+@keyframes hideTheCardContent {
+    0% {
+        opacity: 0.6; /* content opacity */
+    }
+    49% {
+        opacity: 0.6; /* content opacity */
+    }
+    50% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 0;
+    }
 }
