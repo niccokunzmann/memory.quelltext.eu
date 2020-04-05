@@ -124,30 +124,6 @@ function clickCard(cardElement) {
     gameState = newGameState;
 }
 
-function x() {
-    console.log("click: " + getCardValue(aCard));
-    if (aCard.classList.contains("paired")) {
-        return;
-    }
-    showCard(aCard);
-    if (lastClicked.length == 2) {
-        hideCard(lastClicked[0]);
-        hideCard(lastClicked[1]);
-        lastClicked = [];
-    } else if (lastClicked.length == 1) {
-        if (aCard == lastClicked[0]) {
-            // same card was clicked
-        } else if (getCardValue(lastClicked[0]) == getCardValue(aCard)) {
-            // second card was clicked
-            lastClicked[0].classList.add("paired");
-            aCard.classList.add("paired");
-        }
-    }
-    if (!lastClicked.includes(aCard)) {
-        lastClicked.push(aCard);
-    }
-}
-
 window.addEventListener("load", function() {
     var children = table.children;
     shuffle(children);
