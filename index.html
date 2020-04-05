@@ -3,34 +3,21 @@
         <meta charset="utf-8"/>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
         <link href="css/cards.css" rel="stylesheet"/>
+        <!-- for file in `find js | grep -e '\.js$'`; do echo "        <script async=\"\" src=\"$file\"></script>"; done -->
         <script async="" src="js/background.js"></script>
-        <script async="" src="js/click.js"></script>
         <script async="" src="js/common.js"></script>
+        <script async="" src="js/game.js"></script>
+        <script async="" src="js/states/initial.js"></script>
+        <script async="" src="js/states/match-found.js"></script>
+        <script async="" src="js/states/different-cards.js"></script>
+        <script async="" src="js/states/one-card.js"></script>
+        <script async="" src="js/dealer.js"></script>
+        <script async="" src="js/preload.js"></script>
+        <script async="" src="js/card.js"></script>
+        <script async="" src="js/table.js"></script>
     </head>
-    <body class="preload">
+    <body class="preload" onload="window.game = loadAndStartTheGame('table');">
         <div class="table" id="table">
-            <a class="card line1" onclick="clickCard(this)" value="0"><span class="content">0</span></a>
-            <a class="card line1" onclick="clickCard(this)" value="1"><span class="content">1</span></a>
-            <a class="card line1" onclick="clickCard(this)" value="2"><span class="content">2</span></a>
-            <a class="card line1" onclick="clickCard(this)" value="3"><span class="content">3</span></a>
-            <a class="card line1" onclick="clickCard(this)" value="4"><span class="content">4</span></a>
-            <a class="card line1" onclick="clickCard(this)" value="5"><span class="content">5</span></a>
-            <a class="card line1" onclick="clickCard(this)" value="6"><span class="content">6</span></a>
-            <a class="card line1" onclick="clickCard(this)" value="7"><span class="content">7</span></a>
-            <a class="card line1" onclick="clickCard(this)" value="8"><span class="content">8</span></a>
-            <a class="card line1" onclick="clickCard(this)" value="9"><span class="content">9</span></a>
-            <a class="card line1" onclick="clickCard(this)" value="10"><span class="content">10</span></a>
-            <a class="card line1" onclick="clickCard(this)" value="0"><span class="content">&nbsp;</span></a>
-            <a class="card line1" onclick="clickCard(this)" value="1"><span class="content">&bull;</span></a>
-            <a class="card line1" onclick="clickCard(this)" value="2"><span class="content">&bull;&bull;</span></a>
-            <a class="card line2" onclick="clickCard(this)" value="3"><span class="content">&bull;&bull;<br/>&bull;</span></a>
-            <a class="card line2" onclick="clickCard(this)" value="4"><span class="content">&bull;&bull;<br/>&bull;&bull;</span></a>
-            <a class="card line2" onclick="clickCard(this)" value="5"><span class="content">&bull;&bull;<br/>&bull;&bull;&bull;</span></a>
-            <a class="card line2" onclick="clickCard(this)" value="6"><span class="content">&bull;&bull;&bull;<br/>&bull;&bull;&bull;</span></a>
-            <a class="card line3" onclick="clickCard(this)" value="7"><span class="content">&bull;&bull;&bull;<br/>&bull;&bull;<br/>&bull;&bull;</span></a>
-            <a class="card line3" onclick="clickCard(this)" value="8"><span class="content">&bull;&bull;<br/>&bull;&bull;&bull;<br/>&bull;&bull;&bull;</span></a>
-            <a class="card line3" onclick="clickCard(this)" value="9"><span class="content">&bull;&bull;&bull;<br/>&bull;&bull;&bull;<br/>&bull;&bull;&bull;</span></a>
-            <a class="card line3" onclick="clickCard(this)" value="10"><span class="content">&bull;&bull;&bull;<br/>&bull;&bull;&bull;<br/>&bull;&bull;&bull;&bull;</span></a>
         </div>
     </body>
 </html>
