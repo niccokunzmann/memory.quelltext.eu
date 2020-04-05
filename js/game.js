@@ -23,7 +23,11 @@ function loadAndStartTheGame(tableElementId) {
     var tableElement = document.getElementById(tableElementId);
     var table = new Table(tableElement);
     var dealer = new dealers.dotsAndNumbers();
+    table.clean();
+    setTableBackground();
+    startPreload();
     dealer.prepare(table);
+    table.shuffleCards();
     var game = new Game(table);
     game.start();
     return game;

@@ -94,7 +94,6 @@ class DotsAndNumbersDealer {
                 table.addCard(card);
             });
         }
-        table.shuffleCards();
     }
 }
 

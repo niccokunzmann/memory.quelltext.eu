@@ -26,23 +26,18 @@ function setTableBackground() {
     document.body.style.backgroundSize = "cover";
 }
 
-function setCardBackground() {
-    var cards = document.getElementsByClassName("card");
-    for (var i = 0; i < cards.length; i++) {
-        var aCard = cards[i];
-        setCardBackgroundOf(aCard);
-    }
-}
-
-function setCardBackgroundOf(aCard) {
+function setPaperBackgroundOf(aCardElement) {
     var chosenImage = CARD_IMAGES[Math.floor(Math.random() * CARD_IMAGES.length)];
     const img = document.createElement("img");
     img.src = CARD_IMAGES_FOLDER + "/" + chosenImage;
-    aCard.appendChild(img);
+    aCardElement.appendChild(img);
+    
+}
+
+function setMenuBackground() {
     
 }
 
 window.addEventListener("load", function () {
-    setTableBackground();
-    setCardBackground();
+    setMenuBackground();
 });

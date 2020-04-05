@@ -64,5 +64,6 @@ Card.newSheetOfPaper = function (equivalenceId, html, classList) {
     });
     root.classList.add("card");
     content.classList.add("content");
+    setPaperBackgroundOf(root);
     return new Card(root, equivalenceId);
 }

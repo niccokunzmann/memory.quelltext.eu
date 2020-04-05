@@ -1,5 +1,6 @@
 
-window.addEventListener("load", function() {
+function startPreload() {
+    document.body.classList.add("preload");
     var children = table.children;
     shuffle(children);
     for (var i = 0; i < children.length; i++) {
@@ -7,7 +8,7 @@ window.addEventListener("load", function() {
     }
     setTimeout(function() {
     document.body.classList.remove("preload");
-}, 1000);
-});
+    }, 1000);
+}
 
 

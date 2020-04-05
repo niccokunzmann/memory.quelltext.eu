@@ -27,10 +27,17 @@ class Table {
     }
     
     shuffleCards() {
-        var children = table.children;
+        // convert html element collection to array, see https://stackoverflow.com/a/222847
+        var children = [].slice.call(this.element.children);
         shuffle(children);
         for (var i = 0; i < children.length; i++) {
-            table.appendChild(children[i]);
+            this.element.appendChild(children[i]);
+        }
+    }
+    
+    clean() {
+        while (this.element.children.length > 0) {
+            this.element.removeChild(this.element.children[0]);
         }
     }
 }
