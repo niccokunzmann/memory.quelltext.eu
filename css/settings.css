@@ -42,6 +42,7 @@ img.soundOn, .soundOff img.soundOff {
     border-radius: 0.5em;
     margin: 0.5em;
     padding: 0.5em;
+    background-color: white;
 }
 
 #dealerContainer .dealer:hover {
