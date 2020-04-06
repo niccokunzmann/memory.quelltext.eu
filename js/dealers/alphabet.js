@@ -17,7 +17,7 @@ class AlphabetDealer {
             if (!letters.length) {
                 letters = this.getLetters();
             }
-            var letter = letters.pop(Math.floor(Math.random() * letters.length));
+            var letter = removeRandomElementFrom(letters);
             table.addCard(new CardFactory(letter, letter.toLowerCase(), ["line1"]).alphabet());
             table.addCard(new CardFactory(letter, letter.toUpperCase(), ["line1"]).alphabet());
             numberOfCards -= 2;

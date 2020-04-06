@@ -12,3 +12,11 @@ function shuffle(a) {
     }
     return a;
 }
+
+function removeRandomElementFrom(anArray) {
+    var index = Math.floor(Math.random() * anArray.length);
+    // see https://stackoverflow.com/a/5767357/1320237
+    var element = anArray[index];
+    anArray.splice(index, 1);
+    return element;
+}

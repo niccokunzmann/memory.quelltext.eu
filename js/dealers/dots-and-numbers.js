@@ -93,7 +93,7 @@ class DotsAndNumbersDealer {
             if (!pairs.length) {
                 pairs = this.getPairs();
             }
-            var pair = pairs.pop(Math.floor(Math.random() * pairs.length));
+            var pair = removeRandomElementFrom(pairs);
             if (pair[0].value < this.start || pair[0].value > this.stop) {
                 continue;
             }
