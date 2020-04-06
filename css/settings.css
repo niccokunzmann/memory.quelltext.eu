@@ -34,10 +34,24 @@ img.soundOn, .soundOff img.soundOff {
     display: inline-block;
     text-align: center;
     font-size: 3em;
+    padding-bottom: 0.5em;
+    padding-top: 0.5em;
+    border-bottom-width: 0.3em;
+    border-bottom-color: #dddddd;
+    border-bottom-style: solid;
+    width: 100%;
 }
 
-.hidden {
-    display: none;
+#dealerContainer .dealer:hover {
+    background-color: #dddddd;
+}
+
+#dealerContainer .dealer img {
+    max-width: 100%;
+}
+
+#dealerContainer .dealer .description {
+    
 }
 
 /* ---- flexible layout ---- */
@@ -70,4 +84,9 @@ body {
 
 .box .row.footer {
     flex: 0 1 3em;
+}
+
+
+.hidden {
+    display: none;
 }

@@ -37,6 +37,7 @@ class Settings {
         this.modeChanged();
         this.loadDealers();
         this.table.hide();
+        this.menu = document.getElementById("menu");
     }
     
     changeMode() {
@@ -82,15 +83,22 @@ class Settings {
         
         var description = document.createElement("div");
         description.innerHTML = dealer.getDescription();
+        description.classList.add("description");
         root.appendChild(description);
         return root;
     }
 
-    dealerChosen(id, dealer) {
-        
+    dealerChosen(dealer) {
+        this.table.show();
+        this.menu.classList.add("hidden");
+        game = loadAndStartTheGame(this.table, dealer, this.mode);
     }
 }
 
-var settings = new Settings();
+var settings;
+var game;
 
-window.addEventListener("load", settings.onload.bind(settings));
+window.addEventListener("load", function() {
+    settings = new Settings();
+    settings.onload();
+});

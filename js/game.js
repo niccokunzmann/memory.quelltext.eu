@@ -19,10 +19,7 @@ class Game {
 }
 
 
-function loadAndStartTheGame(tableElementId) {
-    var tableElement = document.getElementById(tableElementId);
-    var table = new Table(tableElement);
-    var dealer = new dealers.dotsAndNumbers();
+function loadAndStartTheGame(table, dealer, mode) {
     table.clean();
     setTableBackground();
     startPreload();
