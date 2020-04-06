@@ -43,6 +43,7 @@ class Table {
         while (this.element.children.length > 0) {
             this.element.removeChild(this.element.children[0]);
         }
+        this.cards = [];
     }
     
     hide() {
@@ -73,5 +74,9 @@ class Table {
     get height() {
         // see https://stackoverflow.com/a/294273/1320237
         return this.element.getBoundingClientRect().height;
+    }
+    
+    allCardsArePaired() {
+        return this.cards.every(function(card) {return card.isPaired;});
     }
 }

@@ -26,7 +26,11 @@ class Settings {
     
     constructor() {
         this.modeIndex = 0;
-        this.table = new Table("table");
+        this.table = this.newTable();
+    }
+
+    newTable() {
+        return new Table("table");
     }
     
     toggleSound() {
@@ -92,7 +96,13 @@ class Settings {
     dealerChosen(dealer) {
         this.table.show();
         this.menu.classList.add("hidden");
-        game = loadAndStartTheGame(this.table, dealer, this.mode);
+        game = loadAndStartTheGame(this.newTable(), dealer, this.mode, this.onGameIsOver.bind(this));
+    }
+
+    onGameIsOver() {
+        this.table.clean();
+        this.table.hide();
+        this.menu.classList.remove("hidden");
     }
 }
 
