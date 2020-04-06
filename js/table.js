@@ -61,7 +61,7 @@ class Table {
             var current = Math.round((lowerBound + upperBound) / 2);
             scaleAllCardsOnTheTable(current);
             var height = this.height;
-            console.log("test card size: height = " + height + "; card = " + current);
+            console.log("test card size: maxHeight: " + maxHeight + "\theight: " + height + "\tlowerBound: " + lowerBound + "\tupperBound: " + upperBound + "\tcurrent:" + current);
             if (height < maxHeight) {
                 lowerBound = current;
             } else {

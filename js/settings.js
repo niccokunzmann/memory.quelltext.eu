@@ -1,8 +1,9 @@
 
 class GameMode {
     
-    constructor(sourceImage) {
+    constructor(sourceImage, numberOfCards) {
         this.sourceImage = sourceImage;
+        this.numberOfCards = numberOfCards;
     }
     
     displayOnButton(img) {

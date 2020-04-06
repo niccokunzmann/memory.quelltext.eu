@@ -24,7 +24,7 @@ function loadAndStartTheGame(table, dealer, mode) {
     table.clean();
     setTableBackground();
     startPreload();
-    dealer.prepare(table);
+    dealer.prepare(table, mode.numberOfCards);
     table.shuffleCards();
     var game = new Game(table);
     game.start();

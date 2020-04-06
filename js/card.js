@@ -84,5 +84,5 @@ function scaleAllCardsOnTheTable(pixels) {
         css += ".card.line" + i + " { font-size: " + Math.round(0.8 * pixels / i) + "px; line-height: " + Math.round(1 * pixels / i) + "px } \n";
     }
     sheet.innerHTML = css;
-    console.log(css);
+    //console.log(css);
 }

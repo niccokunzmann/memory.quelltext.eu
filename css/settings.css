@@ -56,6 +56,10 @@ img.soundOn, .soundOff img.soundOff {
     
 }
 
+body {
+    /*overflow: hidden;*/
+}
+
 /* ---- flexible layout ---- */
 /* see https://stackoverflow.com/a/24979148/1320237 */
 html,

@@ -6,8 +6,14 @@
  */
 class DotsAndNumbersDealer {
     
-    get pairs() { 
-        return [
+    constructor(start, stop, description) {
+        this.start = start;
+        this.stop = stop;
+        this.description = description;
+    }
+    
+    getPairs() { 
+        var pairs = [
             [{
                 text: "0",
                 classList: ["line1"]
@@ -27,7 +33,7 @@ class DotsAndNumbersDealer {
                 text: "&bull;&bull;",
                 classList: ["line1"]
             }], [{
-                text: "2",
+                text: "3",
                 classList: ["line1"]
             }, {
                 text: "&bull;&bull;<br/>&bull;",
@@ -75,21 +81,30 @@ class DotsAndNumbersDealer {
                 text: "&bull;&bull;&bull;<br/>&bull;&bull;&bull;<br/>&bull;&bull;&bull;&bull;",
                 classList: ["line3"]
             }]
-       ];
+        ];
+        pairs.forEach(function(pair, index) {
+            pair.forEach(function(element){
+                element.equivalenceId = "" + index;
+                element.value = index;
+            });
+        });
+        return pairs;
     };
-
-    constructor(start, stop, description) {
-        this.start = start;
-        this.stop = stop;
-        this.description = description;
-    }
     
-    prepare(table) {
-        for (var equivalenceId in this.pairs) {
-            var pair = this.pairs[equivalenceId];
+    prepare(table, numberOfCards) {
+        var pairs = [];
+        while (numberOfCards > 0) {
+            if (!pairs.length) {
+                pairs = this.getPairs();
+            }
+            var pair = pairs.pop(Math.floor(Math.random() * pairs.length));
+            if (pair[0].value < this.start || pair[0].value > this.stop) {
+                continue;
+            }
             pair.forEach(function (element) {
-                var card = Card.newSheetOfPaper(equivalenceId, element.text, element.classList);
+                var card = Card.newSheetOfPaper(element.equivalenceId, element.text, element.classList);
                 table.addCard(card);
+                numberOfCards--;
             });
         }
     }
