@@ -13,9 +13,9 @@ class GameMode {
 class Settings {
     
     modes = [
-        new GameMode("img/settings/size-small.png"),
-        new GameMode("img/settings/size-medium.png"),
-        new GameMode("img/settings/size-big.png"),
+        new GameMode("img/settings/size-small.png", 6),
+        new GameMode("img/settings/size-medium.png", 12),
+        new GameMode("img/settings/size-big.png", 24),
     ];
 
     dealerNames = [
