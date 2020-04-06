@@ -15,7 +15,10 @@
    version="1.1"
    id="svg981"
    inkscape:version="0.92.4 (5da689c313, 2019-01-14)"
-   sodipodi:docname="alphabet.svg">
+   sodipodi:docname="alphabet.svg"
+   inkscape:export-filename="/home/user/memory.quelltext.eu/img/settings/alphabet.png"
+   inkscape:export-xdpi="320.42255"
+   inkscape:export-ydpi="320.42255">
   <defs
      id="defs975" />
   <sodipodi:namedview
@@ -26,7 +29,7 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="7.9195959"
-     inkscape:cx="47.846783"
+     inkscape:cx="24.108198"
      inkscape:cy="29.004726"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
@@ -57,13 +60,6 @@
      inkscape:groupmode="layer"
      id="layer1"
      transform="translate(-31.4897,-76.511123)">
-    <ellipse
-       style="fill:#ffffff;stroke:#000000;stroke-width:0.26499999;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:markers fill stroke"
-       id="path1608"
-       cx="39.541195"
-       cy="84.526939"
-       rx="6.1471992"
-       ry="6.4979906" />
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:21.54196739px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:0.26458332;"

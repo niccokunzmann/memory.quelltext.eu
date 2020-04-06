@@ -54,16 +54,27 @@
     animation-duration: 1s;
 }
 
+.backside {
+    animation-name: showOneCardSide;
+    animation-duration: 1s;
+}
+
 .visible .backside, .paired .backside {
-    display: none;
+    opacity: 0;
+    animation-name: hideOneCardSide;
+    animation-duration: 1s;
 }
 
 .frontside {
-    display: none;
+    opacity: 0;
+    animation-name: hideOneCardSide;
+    animation-duration: 1s;
 }
 
 .visible .frontside, .paired .frontside {
-    display: inline-block;
+    opacity: 1;
+    animation-name: showOneCardSide;
+    animation-duration: 1s;
 }
 
 .paired {
@@ -136,6 +147,36 @@
     }
     49% {
         opacity: 0.6; /* content opacity */
+    }
+    50% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+@keyframes showOneCardSide {
+    0% {
+        opacity: 0;
+    }
+    49% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes hideOneCardSide {
+    0% {
+        opacity: 1;
+    }
+    49% {
+        opacity: 1;
     }
     50% {
         opacity: 0;

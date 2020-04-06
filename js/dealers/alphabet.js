@@ -25,7 +25,7 @@ class AlphabetDealer {
     }
     
     getImagePath() {
-        return "img/sheet/alphabet-front.png";
+        return "img/settings/alphabet.png";
     }
     
     getDescription() {
