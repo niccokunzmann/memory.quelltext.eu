@@ -18,11 +18,6 @@ class Settings {
         new GameMode("img/settings/size-medium.png", 12),
         new GameMode("img/settings/size-big.png", 24),
     ];
-
-    dealerNames = [
-        "dotsAndNumbers1To5",
-        "dotsAndNumbers0To10",
-    ];
     
     constructor() {
         this.modeIndex = 0;
@@ -65,7 +60,7 @@ class Settings {
     loadDealers() {
         var dealerContainer = document.getElementById("dealerContainer");
         var me = this;
-        this.dealerNames.forEach(function(id) {
+        for (var id in dealers) {
             var dealer = dealers[id]();
             var element = me.dealerToHTML(id, dealer);
             element.addEventListener("click", function() {
@@ -73,7 +68,7 @@ class Settings {
                 me.dealerChosen(dealer);
             });
             dealerContainer.appendChild(element);
-        });
+        };
     }
 
     dealerToHTML(id, dealer) {

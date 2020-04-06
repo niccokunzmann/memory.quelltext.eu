@@ -54,19 +54,49 @@ class Card {
     }
 }
 
-Card.newSheetOfPaper = function (equivalenceId, html, classList) {
-    var root = document.createElement("a");
-    var content = document.createElement("span");
-    root.appendChild(content);
-    content.innerHTML = html;
-    classList.forEach(function (cls) {
-        root.classList.add(cls);
-    });
-    root.classList.add("card");
-    content.classList.add("content");
-    setPaperBackgroundOf(root);
-    return new Card(root, equivalenceId);
+
+class CardFactory {
+    constructor(equivalenceId, html, classList) {
+        this.equivalenceId = equivalenceId;
+        this.html = html;
+        this.classList = classList;
+    }
+    
+    getRootCardElement() {
+        var root = document.createElement("a");
+        var content = document.createElement("span");
+        root.appendChild(content);
+        content.innerHTML = this.html;
+        this.classList.forEach(function (cls) {
+            root.classList.add(cls);
+        });
+        root.classList.add("card");
+        content.classList.add("content");
+        return root;
+    }
+    
+    sheetOfPaper(equivalenceId, html, classList) {
+        var root = this.getRootCardElement();
+        setPaperBackgroundOf(root);
+        return new Card(root, this.equivalenceId);
+    }
+    
+    setImagePath(root, path, cls) {
+        var image = document.createElement("img");
+        image.src = path;
+        image.classList.add(cls);
+        root.appendChild(image);
+        return image
+    }
+    
+    alphabet() {
+        var root = this.getRootCardElement();
+        this.setImagePath(root, "img/sheet/alphabet-front.png", "backside");
+        this.setImagePath(root, "img/sheet/alphabet-back.png", "frontside");
+        return new Card(root, this.equivalenceId);
+    }
 }
+
 
 function scaleAllCardsOnTheTable(pixels) {
     var sheet = document.getElementById("card-scale-sheet");

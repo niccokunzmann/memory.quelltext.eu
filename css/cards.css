@@ -54,6 +54,18 @@
     animation-duration: 1s;
 }
 
+.visible .backside, .paired .backside {
+    display: none;
+}
+
+.frontside {
+    display: none;
+}
+
+.visible .frontside, .paired .frontside {
+    display: inline-block;
+}
+
 .paired {
     opacity: 0.8; /* card opacity */
     color: gray;
