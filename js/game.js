@@ -9,6 +9,7 @@ class Game {
     
     start() {
         this.table.onCardClicked(this.cardClicked.bind(this));
+        this.table.fitOnScreen();
     }
     
     cardClicked(aCard) {

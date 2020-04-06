@@ -67,3 +67,22 @@ Card.newSheetOfPaper = function (equivalenceId, html, classList) {
     setPaperBackgroundOf(root);
     return new Card(root, equivalenceId);
 }
+
+function scaleAllCardsOnTheTable(pixels) {
+    var sheet = document.getElementById("card-scale-sheet");
+    if (!sheet) {
+        // see https://www.w3.org/wiki/Dynamic_style_-_manipulating_CSS_with_JavaScript
+        sheet = document.createElement("style");
+        sheet.id = "card-scale-sheet";
+        document.head.appendChild(sheet);
+    }
+    var margin = Math.round(0.1 * pixels);
+    var css = "/* dynamic scaling */" + 
+        ".card { width: " + pixels + "px; height: " + pixels + "px; margin: " + margin + "px } \n" + 
+        ".card img { top: -" + margin + "px; left: -" + margin + "px; }\n";
+    for (var i = 1; i < 5; i++) {
+        css += ".card.line" + i + " { font-size: " + Math.round(0.8 * pixels / i) + "px; line-height: " + Math.round(1 * pixels / i) + "px } \n";
+    }
+    sheet.innerHTML = css;
+    console.log(css);
+}

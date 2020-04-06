@@ -51,4 +51,27 @@ class Table {
     show() {
         this.element.classList.remove("hidden");
     }
+    
+    fitOnScreen() {
+        // view port height, see https://stackoverflow.com/a/8876069/1320237
+        const maxHeight = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
+        var lowerBound = 0;
+        var upperBound = maxHeight;
+        while (lowerBound + 1< upperBound) {
+            var current = Math.round((lowerBound + upperBound) / 2);
+            scaleAllCardsOnTheTable(current);
+            var height = this.height;
+            console.log("test card size: height = " + height + "; card = " + current);
+            if (height < maxHeight) {
+                lowerBound = current;
+            } else {
+                upperBound = current;
+            }
+        }
+    }
+    
+    get height() {
+        // see https://stackoverflow.com/a/294273/1320237
+        return this.element.getBoundingClientRect().height;
+    }
 }
