@@ -75,7 +75,7 @@ class CardFactory {
         return root;
     }
     
-    sheetOfPaper(equivalenceId, html, classList) {
+    sheetOfPaper() {
         var root = this.getRootCardElement();
         setPaperBackgroundOf(root);
         return new Card(root, this.equivalenceId);

@@ -59,16 +59,19 @@ class Settings {
 
     loadDealers() {
         var dealerContainer = document.getElementById("dealerContainer");
-        var me = this;
         for (var id in dealers) {
             var dealer = dealers[id]();
-            var element = me.dealerToHTML(id, dealer);
-            element.addEventListener("click", function() {
-                console.log("dealer chosen: " + id);
-                me.dealerChosen(dealer);
-            });
+            var element = this.dealerToHTML(id, dealer);
+            this.addOnClickListener(element, id, dealer);
             dealerContainer.appendChild(element);
         };
+    }
+
+    addOnClickListener(element, id, dealer) {
+        element.addEventListener("click", function() {
+            console.log("dealer chosen: " + id);
+            this.dealerChosen(dealer);
+        }.bind(this));
     }
 
     dealerToHTML(id, dealer) {
