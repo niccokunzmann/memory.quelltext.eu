@@ -26,10 +26,14 @@ function setTableBackground() {
     document.body.style.backgroundSize = "cover";
 }
 
-function setPaperBackgroundOf(aCardElement) {
+function getRandomSheetOfPaper() {
     var chosenImage = CARD_IMAGES[Math.floor(Math.random() * CARD_IMAGES.length)];
+    return CARD_IMAGES_FOLDER + "/" + chosenImage;
+}
+
+function setPaperBackgroundOf(aCardElement) {
     const img = document.createElement("img");
-    img.src = CARD_IMAGES_FOLDER + "/" + chosenImage;
+    img.src = getRandomSheetOfPaper();
     aCardElement.appendChild(img);
     
 }

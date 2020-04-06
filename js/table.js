@@ -4,10 +4,14 @@
 
 class Table {
     
-    constructor(element) {
-        this.element = element;
+    constructor(elementId) {
+        this.elementId = elementId;
         this.cards = [];
         this.cardListeners = [];
+    }
+    
+    get element() {
+        return document.getElementById(this.elementId);
     }
     
     cardClicked(aCard) {
@@ -39,5 +43,12 @@ class Table {
         while (this.element.children.length > 0) {
             this.element.removeChild(this.element.children[0]);
         }
+    }
+    
+    hide() {
+        this.element.classList.add("hidden");
+    }
+    show() {
+        this.element.classList.remove("hidden");
     }
 }

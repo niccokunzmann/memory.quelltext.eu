@@ -3,6 +3,7 @@
         <meta charset="utf-8"/>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
         <link href="css/cards.css" rel="stylesheet"/>
+        <link href="css/settings.css" rel="stylesheet"/>
         <!-- for file in `find js | grep -e '\.js$'`; do echo "        <script async=\"\" src=\"$file\"></script>"; done -->
         <script async="" src="js/background.js"></script>
         <script async="" src="js/common.js"></script>
@@ -15,9 +16,19 @@
         <script async="" src="js/preload.js"></script>
         <script async="" src="js/card.js"></script>
         <script async="" src="js/table.js"></script>
+        <script async="" src="js/settings.js"></script>
     </head>
-    <body class="preload" onload="window.game = loadAndStartTheGame('table');">
+    <body class="" onload="">
         <div class="table" id="table">
+        </div>
+        <div class="menu box">
+            <div id="dealerContainer" class="row content">
+            </div>
+            <div id="settings" class="row footer">
+                <img src="img/settings/sound-on.png" class="soundOn noselect element" onclick="settings.toggleSound()" />
+                <img src="img/settings/sound-off.png" class="soundOff noselect element" onclick="settings.toggleSound()" />
+                <img src="" id="gameMode" class="noselect element" onclick="settings.changeMode(this)" />
+            </div>
         </div>
     </body>
 </html>

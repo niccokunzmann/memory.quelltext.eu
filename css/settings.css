@@ -1,0 +1,73 @@
+#settings .element {
+    margin-right: 1em;
+    margin-left: 1em;
+    padding: 0.5em;
+    background-color: #ffffff;
+    border-radius: 0.5em;
+}
+
+#settings .element:hover {
+    background-color: #dddddd;
+}
+
+img.soundOn, .soundOff img.soundOff {
+    display: inline-block;
+}
+
+.soundOff img.soundOn, img.soundOff {
+    display: none;
+}
+
+#settings {
+    text-align: center;
+    background-color: #eeeeee;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+}
+
+#dealerContainer {
+    overflow-y: auto;
+    text-align: center;
+}
+
+#dealerContainer .dealer {
+    display: inline-block;
+    text-align: center;
+    font-size: 3em;
+}
+
+.hidden {
+    display: none;
+}
+
+/* ---- flexible layout ---- */
+/* see https://stackoverflow.com/a/24979148/1320237 */
+html,
+body {
+    height: 100%;
+    margin: 0;
+    padding: 0px;
+}
+
+.box {
+    display: flex;
+    flex-flow: column;
+    height: 100%;
+}
+
+.box .row.header {
+    flex: 0 1 auto;
+    /* The above is shorthand for:
+    flex-grow: 0,
+    flex-shrink: 1,
+    flex-basis: auto
+    */
+}
+
+.box .row.content {
+    flex: 1 1 auto;
+}
+
+.box .row.footer {
+    flex: 0 1 3em;
+}

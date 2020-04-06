@@ -6,85 +6,83 @@
  */
 class DotsAndNumbersDealer {
     
-    pairs = {
-        "0": [{
+    get pairs() { 
+        return [
+            [{
                 text: "0",
                 classList: ["line1"]
             }, {
                 text: "&nbsp;",
                 classList: ["line1"]
-            }],
-        "1": [{
+            }], [{
                 text: "1",
                 classList: ["line1"]
             }, {
                 text: "&bull;",
                 classList: ["line1"]
-            }],
-        "2": [{
+            }], [{
                 text: "2",
                 classList: ["line1"]
             }, {
                 text: "&bull;&bull;",
                 classList: ["line1"]
-            }],
-        "3": [{
+            }], [{
                 text: "2",
                 classList: ["line1"]
             }, {
                 text: "&bull;&bull;<br/>&bull;",
                 classList: ["line2"]
-            }],
-        "4": [{
+            }], [{
                 text: "4",
                 classList: ["line1"]
             }, {
                 text: "&bull;&bull;<br/>&bull;&bull;",
                 classList: ["line2"]
-            }],
-        "5": [{
+            }], [{
                 text: "5",
                 classList: ["line1"]
             }, {
                 text: "&bull;&bull;<br/>&bull;&bull;&bull;",
                 classList: ["line2"]
-            }],
-        "6": [{
+            }], [{
                 text: "6",
                 classList: ["line1"]
             }, {
                 text: "&bull;&bull;&bull;<br/>&bull;&bull;&bull;",
                 classList: ["line2"]
-            }],
-        "7": [{
+            }], [{
                 text: "7",
                 classList: ["line1"]
             }, {
                 text: "&bull;&bull;&bull;<br/>&bull;&bull;<br/>&bull;&bull;",
                 classList: ["line3"]
-            }],
-        "8": [{
+            }], [{
                 text: "8",
                 classList: ["line1"]
             }, {
                 text: "&bull;&bull;&bull;<br/>&bull;&bull;&bull;<br/>&bull;&bull;",
                 classList: ["line3"]
-            }],
-        "9": [{
+            }], [{
                 text: "9",
                 classList: ["line1"]
             }, {
                 text: "&bull;&bull;&bull;<br/>&bull;&bull;&bull;<br/>&bull;&bull;&bull;",
                 classList: ["line3"]
-            }],
-        "10": [{
+            }], [{
                 text: "10",
                 classList: ["line1"]
             }, {
                 text: "&bull;&bull;&bull;<br/>&bull;&bull;&bull;<br/>&bull;&bull;&bull;&bull;",
                 classList: ["line3"]
             }]
+       ];
     };
+
+    constructor(start, stop, description) {
+        this.start = start;
+        this.stop = stop;
+        this.description = description;
+    }
     
     prepare(table) {
         for (var equivalenceId in this.pairs) {
@@ -95,9 +93,22 @@ class DotsAndNumbersDealer {
             });
         }
     }
+    
+    getImagePath() {
+        return getRandomSheetOfPaper();
+    }
+    
+    getDescription() {
+        return this.description;
+    }
 }
 
 
 var dealers;
 dealers = dealers || {};
-dealers.dotsAndNumbers = DotsAndNumbersDealer;
+dealers.dotsAndNumbers1To5 = function() {
+    return new DotsAndNumbersDealer(1, 5, "1-5 &bull;&bull;&bull;&bull;&bull;");
+};
+dealers.dotsAndNumbers0To10 = function() {
+    return new DotsAndNumbersDealer(0, 10, "0-10 &bull;&bull;&bull;&bull;&bull; &bull;&bull;&bull;&bull;&bull;");
+};
