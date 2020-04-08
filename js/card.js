@@ -90,9 +90,24 @@ class CardFactory {
     }
     
     alphabet() {
+        return this.frontAndBack("img/sheet/alphabet-front.png", "img/sheet/alphabet-back.png");
+    }
+    
+    plus() {
+        return this.frontAndBack(removeRandomElementFrom([
+            "img/sheet/plus-blue.png",
+            "img/sheet/plus-orange.png",
+            "img/sheet/plus-green.png",
+            "img/sheet/plus-red.png",
+            "img/sheet/plus-lightblue.png",
+            "img/sheet/plus-yellow.png",
+        ]), "img/sheet/plus-front.png");
+    }
+    
+    frontAndBack(frontImagePath, backImagePath) {
         var root = this.getRootCardElement();
-        this.setImagePath(root, "img/sheet/alphabet-front.png", "backside");
-        this.setImagePath(root, "img/sheet/alphabet-back.png", "frontside");
+        this.setImagePath(root, frontImagePath, "backside");
+        this.setImagePath(root, backImagePath, "frontside");
         return new Card(root, this.equivalenceId);
     }
 }

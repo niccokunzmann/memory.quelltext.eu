@@ -64,6 +64,10 @@
     animation-duration: 1s;
 }
 
+img.backside {
+    transform: scaleX(-1);
+}
+
 .visible .backside, .paired .backside {
     opacity: 0;
     animation-name: hideOneCardSide;
