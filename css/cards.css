@@ -42,6 +42,11 @@
     opacity: 0;  /* content opacity */
     animation-name: hideTheCardContent;
     animation-duration: 1s;
+    position: absolute;
+    /* center positioning, see https://stackoverflow.com/a/15328843 */
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
 }
 
 .preload .card .content {
