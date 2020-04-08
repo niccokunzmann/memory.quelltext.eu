@@ -3,11 +3,12 @@
  */
 class PlusDealer {
     
-    constructor(minNumber, maxNumber, maxValue, description) {
+    constructor(minNumber, maxNumber, maxValue, description, file) {
         this.minNumber = minNumber;
         this.maxNumber = maxNumber;
         this.maxValue = maxValue;
         this.description = description;
+        this.file = file;
     }
     
     getNumber() {
@@ -29,7 +30,7 @@ class PlusDealer {
     }
     
     getImagePath() {
-        return "img/settings/plus.png";
+        return "img/settings/" + this.file;
     }
     
     getDescription() {

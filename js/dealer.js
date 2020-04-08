@@ -13,9 +13,9 @@ var dealers = {
         return new AlphabetDealer();
     },
     plus5: function() {
-        return new PlusDealer(1, 5, 7, "1+2+3+4+5 max 7");
+        return new PlusDealer(1, 5, 7, "1+2+3+4+5 max 7", "plus.png");
     },
     plus20: function() {
-        return new PlusDealer(0, 20, 20, "0+1+2+...+10 max 20");
+        return new PlusDealer(0, 20, 20, "0+1+2+...+10 max 20", "plus2.png");
     }
 }
