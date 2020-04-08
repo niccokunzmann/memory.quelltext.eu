@@ -29,6 +29,6 @@ class AlphabetDealer {
     }
     
     getDescription() {
-        return "Buchstaben klein und GROß";
+        return "a-z & A-Z";
     }
 }
