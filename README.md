@@ -7,3 +7,6 @@ This is a set of memory games for learning for children.
 It is pure HTML/CSS/JavaScript.
 Deployment via GitHub Pages.
 
+## App
+
+There is an [Android app](https://github.com/niccokunzmann/app.memory.quelltext.eu) including the game.
