@@ -11,4 +11,7 @@ There is [documentation](docs) to read.
 
 ## App
 
-There is an [Android app](https://github.com/niccokunzmann/app.memory.quelltext.eu) including the game.
+There is an [Android app](https://github.com/niccokunzmann/app.memory.quelltext.eu#readme) including the game.
+You can **[Download the App][apk]**.
+
+[apk]: https://niccokunzmann.github.io/download_latest/niccokunzmann/app.memory.quelltext.eu/app-debug.apk
