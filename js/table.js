@@ -58,8 +58,8 @@ class Table {
         const maxHeight = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
         var lowerBound = 0;
         var upperBound = maxHeight;
-        while (lowerBound + 1< upperBound) {
-            var current = Math.round((lowerBound + upperBound) / 2);
+        while (lowerBound + 1 < upperBound) {
+            var current = Math.floor((lowerBound + upperBound) / 2);
             scaleAllCardsOnTheTable(current);
             var height = this.height;
             console.log("test card size: maxHeight: " + maxHeight + "\theight: " + height + "\tlowerBound: " + lowerBound + "\tupperBound: " + upperBound + "\tcurrent:" + current);
@@ -69,6 +69,8 @@ class Table {
                 upperBound = current;
             }
         }
+        console.log("selected: " + lowerBound);
+        scaleAllCardsOnTheTable(lowerBound);
     }
     
     get height() {
