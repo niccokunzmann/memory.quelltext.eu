@@ -2,6 +2,11 @@
 
 This is a set of memory games for learning for children.
 
+## App
+
+There is an [Android app](https://github.com/niccokunzmann/app.memory.quelltext.eu#readme) including the game.
+You can **[Download the App][apk]**.
+
 ## Development
 
 It is pure HTML/CSS/JavaScript.
@@ -46,8 +51,5 @@ If you would like to contribute, you can check out the [documentation] to get so
 3. As soon as possible, [create a pull request](https://github.com/niccokunzmann/memory.quelltext.eu/compare) for other to see that you are working on something.
 4. We will discuss everything in the [pull requests](https://github.com/niccokunzmann/memory.quelltext.eu/pulls) or the [issues](https://github.com/niccokunzmann/memory.quelltext.eu/issues).
 
-## App
-
-There is an [Android app](https://github.com/niccokunzmann/app.memory.quelltext.eu) including the game.
-
+[apk]: https://niccokunzmann.github.io/download_latest/niccokunzmann/app.memory.quelltext.eu/app-debug.apk
 [documentation]: docs#readme
