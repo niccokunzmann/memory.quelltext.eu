@@ -48,6 +48,7 @@ If you would like to contribute, you can check out the [documentation] to get so
     4. See the added changes `git status`
     5. Create a new version with the changes `git commit -m"DESCRIPTION OF CHANGE"`
     6. Push the changes to GitHub `git push -u origin BRANCH_NAME` or if you did that already `git push`.
+    7. If the original repository was modified during your work, you can update your branch. `git pull upstream BRANCH_NAME`
 3. As soon as possible, [create a pull request](https://github.com/niccokunzmann/memory.quelltext.eu/compare) for other to see that you are working on something.
 4. We will discuss everything in the [pull requests](https://github.com/niccokunzmann/memory.quelltext.eu/pulls) or the [issues](https://github.com/niccokunzmann/memory.quelltext.eu/issues).
 
