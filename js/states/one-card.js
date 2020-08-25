@@ -1,23 +1,21 @@
 /* This is the state of the game when one card is visible.
  */
-class OneCardVisibleState {
-    
-    constructor (aCard) {
+
+var OneCardVisibleState = function(aCard) {
         this.card = aCard;
         aCard.show();
     }
     
-    onCardClicked(aCard) {
-        if (aCard == this.card || aCard.isPaired) {
+OneCardVisibleState.prototype.onCardClicked = function(aCard) {
+        if (aCard == this.card || aCard.isPaired()) {
             return this;
         }
-        if (aCard.value == this.card.value) {
+        if (aCard.value() == this.card.value()) {
             return new MatchFoundState(this.card, aCard);
         }
         return new DifferentCardsState(this.card, aCard);
     }
     
-    toString() {
+OneCardVisibleState.prototype.toString = function() {
         return "OneCardVisibleState(" + this.card + ")";
     }
-}

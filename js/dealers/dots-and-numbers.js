@@ -1,14 +1,13 @@
 /* Put cards with dots and numbers on the table.
  */
-class DotsAndNumbersDealer {
-    
-    constructor(start, stop, description) {
+
+var DotsAndNumbersDealer = function(start, stop, description) {
         this.start = start;
         this.stop = stop;
         this.description = description;
     }
     
-    getPairs() { 
+DotsAndNumbersDealer.prototype.getPairs = function() {
         var pairs = [
             [{
                 text: "0",
@@ -87,7 +86,7 @@ class DotsAndNumbersDealer {
         return pairs;
     };
     
-    prepare(table, numberOfCards) {
+DotsAndNumbersDealer.prototype.prepare = function(table, numberOfCards) {
         var pairs = [];
         while (numberOfCards > 0) {
             if (!pairs.length) {
@@ -105,11 +104,10 @@ class DotsAndNumbersDealer {
         }
     }
     
-    getImagePath() {
+DotsAndNumbersDealer.prototype.getImagePath = function() {
         return getRandomSheetOfPaper();
     }
     
-    getDescription() {
+DotsAndNumbersDealer.prototype.getDescription = function() {
         return this.description;
     }
-}

@@ -1,65 +1,61 @@
 
-class GameMode {
-    
-    constructor(sourceImage, numberOfCards) {
+var GameMode = function(sourceImage, numberOfCards) {
         this.sourceImage = sourceImage;
         this.numberOfCards = numberOfCards;
     }
     
-    displayOnButton(img) {
+GameMode.prototype.displayOnButton = function(img) {
         img.src = this.sourceImage;
     }
-}
 
-class Settings {
+
+var Settings = function() {
+       this.modeIndex = 0;
+       this.table = this.newTable();
+   }
     
-    get modes(){
+Settings.prototype.modes = function() {
         return [
             new GameMode("img/settings/size-small.png", 6),
             new GameMode("img/settings/size-medium.png", 12),
             new GameMode("img/settings/size-big.png", 24),
         ];
     };
-    
-    constructor() {
-        this.modeIndex = 0;
-        this.table = this.newTable();
-    }
 
-    newTable() {
+Settings.prototype.newTable = function() {
         return new Table("table");
     }
     
-    toggleSound() {
+Settings.prototype.toggleSound = function() {
         document.body.classList.toggle("soundOff");
     }
     
-    onload() {
-        this.modeElement.onclick = this.changeMode.bind(this);
+Settings.prototype.onload = function() {
+        this.modeElement().onclick = this.changeMode.bind(this);
         this.modeChanged();
         this.loadDealers();
         this.table.hide();
         this.menu = document.getElementById("menu");
     }
     
-    changeMode() {
-        this.modeIndex = (this.modeIndex + 1) % this.modes.length;
+Settings.prototype.changeMode = function() {
+        this.modeIndex = (this.modeIndex + 1) % this.modes().length;
         this.modeChanged();
     }
 
-    modeChanged(){
-        this.mode.displayOnButton(this.modeElement);
+Settings.prototype.modeChanged = function(){
+        this.mode().displayOnButton(this.modeElement());
     }
 
-    get mode(){
-        return this.modes[this.modeIndex];
+Settings.prototype.mode = function(){
+        return this.modes()[this.modeIndex];
     }
 
-    get modeElement() {
+Settings.prototype.modeElement = function() {
         return document.getElementById("gameMode");
     }
 
-    loadDealers() {
+Settings.prototype.loadDealers = function() {
         var dealerContainer = document.getElementById("dealerContainer");
         for (var id in dealers) {
             var dealer = dealers[id]();
@@ -69,14 +65,14 @@ class Settings {
         };
     }
 
-    addOnClickListener(element, id, dealer) {
+Settings.prototype.addOnClickListener = function(element, id, dealer) {
         element.addEventListener("click", function() {
             console.log("dealer chosen: " + id);
             this.dealerChosen(dealer);
         }.bind(this));
     }
 
-    dealerToHTML(id, dealer) {
+Settings.prototype.dealerToHTML = function(id, dealer) {
         var root = document.createElement("div");
         root.classList.add("dealer");
         root.classList.add("noselect");
@@ -93,18 +89,18 @@ class Settings {
         return root;
     }
 
-    dealerChosen(dealer) {
+Settings.prototype.dealerChosen = function(dealer) {
         this.table.show();
         this.menu.classList.add("hidden");
-        game = loadAndStartTheGame(this.newTable(), dealer, this.mode, this.onGameIsOver.bind(this));
+        game = loadAndStartTheGame(this.newTable(), dealer, this.mode(), this.onGameIsOver.bind(this));
     }
 
-    onGameIsOver() {
+Settings.prototype.onGameIsOver = function() {
         this.table.clean();
         this.table.hide();
         this.menu.classList.remove("hidden");
     }
-}
+
 
 var settings;
 var game;

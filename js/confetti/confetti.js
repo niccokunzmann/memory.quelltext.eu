@@ -104,7 +104,7 @@ var confetti = {
 			canvas = document.createElement("canvas");
 			canvas.setAttribute("id", "confetti-canvas");
 			canvas.setAttribute("style", "display:block;z-index:999999;pointer-events:none;position:fixed;top:0");
-			document.body.prepend(canvas);
+			document.body.appendChild(canvas);
 			canvas.width = width;
 			canvas.height = height;
 			window.addEventListener("resize", function() {

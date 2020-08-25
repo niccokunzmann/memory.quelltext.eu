@@ -1,9 +1,9 @@
 /*
  * This dealer maps upper case letters to lower case letters.
  */
-class AlphabetDealer {
+var AlphabetDealer = function() {}
     
-    getLetters() {
+AlphabetDealer.prototype.getLetters = function() {
         var letters = [];
         for (var i = "a"; i <= "z"; i = String.fromCharCode(i.charCodeAt(0) + 1)) {
             letters.push(i);
@@ -11,7 +11,7 @@ class AlphabetDealer {
         return letters;
     }
     
-    prepare(table, numberOfCards) {
+AlphabetDealer.prototype.prepare = function(table, numberOfCards) {
         var letters = [];
         while (numberOfCards > 0) {
             if (!letters.length) {
@@ -24,11 +24,10 @@ class AlphabetDealer {
         }
     }
     
-    getImagePath() {
+AlphabetDealer.prototype.getImagePath = function() {
         return "img/settings/alphabet.png";
     }
     
-    getDescription() {
+AlphabetDealer.prototype.getDescription = function() {
         return "a-z & A-Z";
     }
-}

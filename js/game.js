@@ -1,19 +1,18 @@
 /* The game has a state and revieves user interaction.
  */
 
-class Game {
-    constructor(table, onOver) {
+var Game = function(table, onOver) {
         this.table = table;
         this.state = new InitialState();
         this.onOver = onOver;
     }
     
-    start() {
+Game.prototype.start = function() {
         this.table.onCardClicked(this.cardClicked.bind(this));
         this.table.fitOnScreen();
     }
     
-    cardClicked(aCard) {
+Game.prototype.cardClicked = function(aCard) {
         if (this.table.allCardsArePaired()) {
             this.stop();
             this.onOver();
@@ -26,15 +25,14 @@ class Game {
             this.over();
         }
     }
-    
-    over() {
+
+Game.prototype.over = function() {
         confetti.start(5000);
     }
     
-    stop() {
+Game.prototype.stop = function() {
         confetti.stop();
     }
-}
 
 
 function loadAndStartTheGame(table, dealer, mode, onOver) {

@@ -1,9 +1,8 @@
 /*
  * This dealer gives out cards with + computation.
  */
-class PlusDealer {
-    
-    constructor(minNumber, maxNumber, maxValue, description, file) {
+
+var PlusDealer = function(minNumber, maxNumber, maxValue, description, file) {
         this.minNumber = minNumber;
         this.maxNumber = maxNumber;
         this.maxValue = maxValue;
@@ -11,11 +10,11 @@ class PlusDealer {
         this.file = file;
     }
     
-    getNumber() {
+PlusDealer.prototype.getNumber = function() {
         return Math.floor(this.minNumber + (this.maxNumber + 1 - this.minNumber) * Math.random());
     }
     
-    prepare(table, numberOfCards) {
+PlusDealer.prototype.prepare = function(table, numberOfCards) {
         var letters = [];
         while (numberOfCards > 0) {
             var number1 = this.getNumber();
@@ -29,11 +28,10 @@ class PlusDealer {
         }
     }
     
-    getImagePath() {
+PlusDealer.prototype.getImagePath = function() {
         return "img/settings/" + this.file;
     }
     
-    getDescription() {
+PlusDealer.prototype.getDescription = function() {
         return this.description;
     }
-}

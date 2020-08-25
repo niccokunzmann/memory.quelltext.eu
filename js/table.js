@@ -2,58 +2,56 @@
  * The cards are placed on the table.
  */
 
-class Table {
-    
-    constructor(elementId) {
+var Table = function(elementId) {
         this.elementId = elementId;
         this.cards = [];
         this.cardListeners = [];
     }
     
-    get element() {
+Table.prototype.element = function() {
         return document.getElementById(this.elementId);
     }
     
-    cardClicked(aCard) {
+Table.prototype.cardClicked = function(aCard) {
         this.cardListeners.forEach(function (listener) {
             listener(aCard);
         });
     }
     
-    onCardClicked(func) {
+Table.prototype.onCardClicked = function(func) {
         this.cardListeners.push(func);
     }
-    
-    addCard(aCard) {
+
+Table.prototype.addCard = function(aCard) {
         this.cards.push(aCard);
-        this.element.appendChild(aCard.asHTMLElement());
+        this.element().appendChild(aCard.asHTMLElement());
         aCard.onCardClicked(this.cardClicked.bind(this));
     }
     
-    shuffleCards() {
+Table.prototype.shuffleCards = function() {
         // convert html element collection to array, see https://stackoverflow.com/a/222847
-        var children = [].slice.call(this.element.children);
+        var children = [].slice.call(this.element().children);
         shuffle(children);
         for (var i = 0; i < children.length; i++) {
-            this.element.appendChild(children[i]);
+            this.element().appendChild(children[i]);
         }
     }
     
-    clean() {
-        while (this.element.children.length > 0) {
-            this.element.removeChild(this.element.children[0]);
+Table.prototype.clean = function() {
+        while (this.element().children.length > 0) {
+            this.element().removeChild(this.element().children[0]);
         }
         this.cards = [];
     }
     
-    hide() {
-        this.element.classList.add("hidden");
+Table.prototype.hide = function() {
+        this.element().classList.add("hidden");
     }
-    show() {
-        this.element.classList.remove("hidden");
+Table.prototype.show = function() {
+        this.element().classList.remove("hidden");
     }
     
-    fitOnScreen() {
+Table.prototype.fitOnScreen = function() {
         // view port height, see https://stackoverflow.com/a/8876069/1320237
         const maxHeight = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
         var lowerBound = 0;
@@ -61,8 +59,12 @@ class Table {
         while (lowerBound + 1 < upperBound) {
             var current = Math.floor((lowerBound + upperBound) / 2);
             scaleAllCardsOnTheTable(current);
-            var height = this.height;
-            console.log("test card size: maxHeight: " + maxHeight + "\theight: " + height + "\tlowerBound: " + lowerBound + "\tupperBound: " + upperBound + "\tcurrent:" + current);
+            var height = this.height();
+            console.log("test card size: maxHeight: " + maxHeight +
+                        "\theight: " + height +
+                        "\tlowerBound: " + lowerBound +
+                        "\tupperBound: " + upperBound +
+                        "\tcurrent:" + current);
             if (height < maxHeight) {
                 lowerBound = current;
             } else {
@@ -73,12 +75,11 @@ class Table {
         scaleAllCardsOnTheTable(lowerBound);
     }
     
-    get height() {
+Table.prototype.height = function() {
         // see https://stackoverflow.com/a/294273/1320237
-        return this.element.getBoundingClientRect().height;
+        return this.element().getBoundingClientRect().height;
     }
     
-    allCardsArePaired() {
-        return this.cards.every(function(card) {return card.isPaired;});
+Table.prototype.allCardsArePaired = function() {
+        return this.cards.every(function(card) {return card.isPaired();});
     }
-}

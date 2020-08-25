@@ -5,64 +5,61 @@
  */
 
 
-class Card {
-    constructor(element, equivalenceId) {
+var Card = function(element, equivalenceId) {
         this.equivalenceId = equivalenceId;
         this.cardListeners = [];
         this.element = element;
         this.element.addEventListener("click", this.cardClicked.bind(this));
     }
     
-    cardClicked() {
+Card.prototype.cardClicked = function() {
         var aCard = this;
         this.cardListeners.forEach(function (listener) {
             listener(aCard);
         });
     }
     
-    onCardClicked(func) {
+Card.prototype.onCardClicked = function(func) {
         this.cardListeners.push(func);
     }
     
-    get value() {
+Card.prototype.value = function() {
         return this.equivalenceId;
     }
     
-    show() {
+Card.prototype.show = function() {
         this.element.classList.add("visible");
     }
     
-    hide() {
+Card.prototype.hide = function() {
         this.element.classList.remove("visible");
     }
     
-    pair() {
+Card.prototype.pair = function() {
         this.element.classList.add("paired");
         this.element.classList.remove("visible");
     }
     
-    get isPaired() {
+Card.prototype.isPaired = function() {
         return this.element.classList.contains("paired");
     }
     
-    toString() {
-        return "Card(" + this.value + (this.isPaired? ", paired" : "") + ")";
+Card.prototype.toString = function() {
+            return "Card(" + this.value() + (this.isPaired() ? ", paired" : "") + ")";
     }
     
-    asHTMLElement() {
+Card.prototype.asHTMLElement = function() {
         return this.element;
     }
-}
 
 
-class CardFactory {
-    constructor(equivalenceId, html, classList) {
+var CardFactory = function(equivalenceId, html, classList) {
         this.equivalenceId = equivalenceId;
         this.html = html;
         this.classList = classList;
     }
     
-    getRootCardElement() {
+CardFactory.prototype.getRootCardElement = function() {
         var root = document.createElement("a");
         var content = document.createElement("span");
         root.appendChild(content);
@@ -75,13 +72,13 @@ class CardFactory {
         return root;
     }
     
-    sheetOfPaper() {
+CardFactory.prototype.sheetOfPaper = function() {
         var root = this.getRootCardElement();
         setPaperBackgroundOf(root);
         return new Card(root, this.equivalenceId);
     }
     
-    setImagePath(root, path, cls) {
+CardFactory.prototype.setImagePath = function(root, path, cls) {
         var image = document.createElement("img");
         image.src = path;
         image.classList.add(cls);
@@ -89,11 +86,11 @@ class CardFactory {
         return image
     }
     
-    alphabet() {
+CardFactory.prototype.alphabet = function() {
         return this.frontAndBack("img/sheet/alphabet-front.png", "img/sheet/alphabet-back.png");
     }
     
-    plus() {
+CardFactory.prototype.plus = function() {
         return this.frontAndBack(removeRandomElementFrom([
             "img/sheet/plus-blue.png",
             "img/sheet/plus-orange.png",
@@ -104,13 +101,12 @@ class CardFactory {
         ]), "img/sheet/plus-front.png");
     }
     
-    frontAndBack(frontImagePath, backImagePath) {
+CardFactory.prototype.frontAndBack = function(frontImagePath, backImagePath) {
         var root = this.getRootCardElement();
         this.setImagePath(root, frontImagePath, "backside");
         this.setImagePath(root, backImagePath, "frontside");
         return new Card(root, this.equivalenceId);
     }
-}
 
 
 function scaleAllCardsOnTheTable(pixels) {
