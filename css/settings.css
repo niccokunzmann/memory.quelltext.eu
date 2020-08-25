@@ -72,27 +72,27 @@ body {
 }
 
 .box {
-    display: flex;
-    flex-flow: column;
+/*    display: flex;
+    flex-flow: column;*/
     height: 100%;
 }
 
 .box .row.header {
-    flex: 0 1 auto;
+/*    flex: 0 1 auto;*/
     /* The above is shorthand for:
     flex-grow: 0,
     flex-shrink: 1,
     flex-basis: auto
     */
 }
-
+/*
 .box .row.content {
     flex: 1 1 auto;
-}
+}*/
 
-.box .row.footer {
+/*.box .row.footer {
     flex: 0 1 3em;
-}
+}*/
 
 
 .hidden {
