@@ -29,7 +29,22 @@ Card.prototype.value = function() {
     
 Card.prototype.show = function() {
         this.element.classList.add("visible");
+        this.transformContentToCenter();
     }
+
+/**
+ * Compatibility function to replace transform and center an element.
+ */
+Card.prototype.transformContentToCenter = function() {
+        if (!this.element.content) {
+            return;
+        }
+        var cardBB = this.element.getBoundingClientRect();
+        var contentBB = this.element.content.getBoundingClientRect();
+        this.element.content.style.left = (cardBB.width / 2 - contentBB.width / 2) + "px";
+        this.element.content.style.top = (cardBB.height / 2 - contentBB.height / 2) + "px";
+    }
+
     
 Card.prototype.hide = function() {
         this.element.classList.remove("visible");
@@ -38,6 +53,7 @@ Card.prototype.hide = function() {
 Card.prototype.pair = function() {
         this.element.classList.add("paired");
         this.element.classList.remove("visible");
+        this.transformContentToCenter();
     }
     
 Card.prototype.isPaired = function() {
@@ -69,6 +85,7 @@ CardFactory.prototype.getRootCardElement = function() {
         });
         root.classList.add("card");
         content.classList.add("content");
+        root.content = content;
         return root;
     }
     
