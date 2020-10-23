@@ -34,7 +34,7 @@ If you would like to contribute to the project, you can do the following:
     git remote add upstream https://github.com/niccokunzmann/memory.quelltext.eu
     ```
 
-Now, you are set and you change change the source code and give the changes to others.
+Now, you are set and you can change the source code and give the changes to others.
 
 ### Example Contribution
 
