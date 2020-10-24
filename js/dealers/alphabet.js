@@ -18,8 +18,12 @@ AlphabetDealer.prototype.prepare = function(table, numberOfCards) {
                 letters = this.getLetters();
             }
             var letter = removeRandomElementFrom(letters);
-            table.addCard(new CardFactory(letter, letter.toLowerCase(), ["line1"]).alphabet());
-            table.addCard(new CardFactory(letter, letter.toUpperCase(), ["line1"]).alphabet());
+            table.addCard(new CardFactory(
+                new PairOfDifferentKind(letter, "lower"),
+                letter.toLowerCase(), ["line1"]).alphabet());
+            table.addCard(new CardFactory(
+                new PairOfDifferentKind(letter, "upper"),
+                letter.toUpperCase(), ["line1"]).alphabet());
             numberOfCards -= 2;
         }
     }
@@ -31,3 +35,4 @@ AlphabetDealer.prototype.getImagePath = function() {
 AlphabetDealer.prototype.getDescription = function() {
         return "a-z & A-Z";
     }
+

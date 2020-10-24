@@ -68,6 +68,9 @@ Card.prototype.asHTMLElement = function() {
         return this.element;
     }
 
+Card.prototype.wantsToBePairedWith = function(aCard) {
+        return this.value().isPair(aCard.value());
+    }
 
 var CardFactory = function(equivalenceId, html, classList) {
         this.equivalenceId = equivalenceId;

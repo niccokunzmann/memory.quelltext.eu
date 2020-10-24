@@ -10,7 +10,7 @@ OneCardVisibleState.prototype.onCardClicked = function(aCard) {
         if (aCard == this.card || aCard.isPaired()) {
             return this;
         }
-        if (aCard.value() == this.card.value()) {
+        if (aCard.wantsToBePairedWith(this.card) && this.card.wantsToBePairedWith(aCard)) {
             return new MatchFoundState(this.card, aCard);
         }
         return new DifferentCardsState(this.card, aCard);

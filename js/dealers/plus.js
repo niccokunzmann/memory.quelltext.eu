@@ -21,8 +21,12 @@ PlusDealer.prototype.prepare = function(table, numberOfCards) {
             var number2 = this.getNumber();
             if (number1 + number2 <= this.maxValue){
                 var value = number1 + number2 + "";
-                table.addCard(new CardFactory(value, number1 + "<br/>+<br/>" + number2, ["line3"]).plus());
-                table.addCard(new CardFactory(value, value, ["line1"]).plus());
+                table.addCard(new CardFactory(
+                    new PairOfDifferentKind(value, "plus"),
+                    number1 + "<br/>+<br/>" + number2, ["line3"]).plus());
+                table.addCard(new CardFactory(
+                    new PairOfDifferentKind(value, "result"),
+                    value, ["line1"]).plus());
                 numberOfCards -= 2;
             }
         }

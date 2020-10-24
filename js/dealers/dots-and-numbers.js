@@ -97,7 +97,7 @@ DotsAndNumbersDealer.prototype.prepare = function(table, numberOfCards) {
                 continue;
             }
             pair.forEach(function (element) {
-                var card = new CardFactory(element.equivalenceId, element.text, element.classList).sheetOfPaper();
+                var card = new CardFactory(new PairWithSameValue(element.equivalenceId), element.text, element.classList).sheetOfPaper();
                 table.addCard(card);
                 numberOfCards--;
             });
