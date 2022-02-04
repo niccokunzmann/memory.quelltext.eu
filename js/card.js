@@ -121,6 +121,15 @@ CardFactory.prototype.plus = function() {
         ]), "img/sheet/plus-front.png");
     }
     
+CardFactory.prototype.boxOfFruit = function() {
+        return this.frontAndBack(removeRandomElementFrom([
+            "img/sheet/box of apples.jpg",
+            "img/sheet/box of bananas.jpg",
+            "img/sheet/box of grapefruit.jpg",
+            "img/sheet/box of fruit.jpg",
+        ]), "img/sheet/box background.jpg");
+    }
+    
 CardFactory.prototype.frontAndBack = function(frontImagePath, backImagePath) {
         var root = this.getRootCardElement();
         this.setImagePath(root, frontImagePath, "backside");

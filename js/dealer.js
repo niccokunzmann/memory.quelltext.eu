@@ -13,9 +13,12 @@ var dealers = {
         return new AlphabetDealer();
     },
     plus5: function() {
-        return new PlusDealer(1, 5, 7, "1+2+3+4+5 max 7", "plus.png");
+        return newPlusDealer(1, 5, 7, "1+2+3+4+5 max 7", "plus.png");
     },
     plus20: function() {
-        return new PlusDealer(0, 20, 20, "0+1+2+...+10 max 20", "plus2.png");
+        return newPlusDealer(0, 20, 20, "0+1+...+10 max 20", "plus2.png");
+    },
+    minus: function() {
+        return newMinusDealer(1, 30, 20, "30-...-1 max 30", "box of fruit.jpg");
     }
 }
