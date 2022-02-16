@@ -8,7 +8,7 @@ var MinusCalculation = {
   },
   operandString: "-",
   calculate: function (a, b) {
-    return a > b ? a - b : b - a;    
+    return a > b ? a - b : null;    
   }
 };
 
