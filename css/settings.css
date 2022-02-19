@@ -18,11 +18,15 @@ img.soundOn, .soundOff img.soundOff {
     display: none;
 }
 
-#settings {
+#settings, #footer {
     text-align: center;
     background-color: #eeeeee;
     padding-top: 0.5em;
     padding-bottom: 0.5em;
+}
+
+#footer a {
+  color: black;
 }
 
 #dealerContainer {
