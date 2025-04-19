@@ -24,6 +24,16 @@ a:hover {
   color: rgb(173, 59, 59);
 }
 
+.link2 {
+  margin-right: 5px;
+  margin-left: 5px;
+}
+
+.link3 {
+  margin-right: 5px;
+  margin-left: 5px;
+}
+
 .text {
   font-size: 0.9rem;
   font-style: italic;
