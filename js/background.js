@@ -19,7 +19,13 @@ const CARD_IMAGES = [
     "1-7.png",
 ];
 
-function setTableBackground() {
+function setTableBackground(gameOver) {
+    if(gameOver){
+        console.log("Game Over")
+        setMenuBackground()
+        gameOver = !gameOver;
+        return;
+    }
     var chosenImage = BACKGROUND_IMAGES[Math.floor(Math.random() * BACKGROUND_IMAGES.length)];
     const backgroundImageString = 'url(' + BACKGROUND_IMAGE_FOLDER + "/" + chosenImage + ') no-repeat center center fixed';
     document.body.style.background = backgroundImageString;
@@ -35,11 +41,11 @@ function setPaperBackgroundOf(aCardElement) {
     const img = document.createElement("img");
     img.src = getRandomSheetOfPaper();
     aCardElement.appendChild(img);
-    
 }
 
 function setMenuBackground() {
-    
+    document.body.style.background = "none"
+    document.body.style.backgroundColor = "white"
 }
 
 window.addEventListener("load", function () {

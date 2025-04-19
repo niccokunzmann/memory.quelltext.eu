@@ -1,4 +1,3 @@
-
 h1, h2 {
   background-color: #eeeeee;
   text-align: center;
@@ -16,5 +15,39 @@ p {
 }
 
 a {
-  color: black;
+  color: rgb(8, 87, 166);
+  transition: all 0.3s ease-in-out;
+}
+
+/* Extra about.html styling */
+a:hover {
+  color: rgb(173, 59, 59);
+}
+
+.text {
+  font-size: 0.9rem;
+  font-style: italic;
+}
+
+.headerContainer {
+  width: 100%;
+  height: 4rem;
+}
+
+.returnToMainButton {
+  position: absolute;
+  width: 4rem;
+  height: 2rem;
+  margin-top: 1.1rem;
+  margin-left: 1rem;
+  box-shadow: 0 0 3px 0 black;
+  transition: all 0.3s ease-in-out;
+}
+
+.returnToMainButton:hover {
+  transform: scale(1.05);
+}
+
+.returnToMainButton:active {
+  transform: scale(1.2);
 }
