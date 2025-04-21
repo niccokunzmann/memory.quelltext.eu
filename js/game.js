@@ -1,5 +1,6 @@
 /* The game has a state and revieves user interaction.
  */
+let gameOver = false;
 
 var Game = function(table, onOver) {
         this.table = table;
@@ -8,6 +9,7 @@ var Game = function(table, onOver) {
     }
     
 Game.prototype.start = function() {
+        gameOver = false
         this.table.onCardClicked(this.cardClicked.bind(this));
         this.table.fitOnScreen();
     }
@@ -28,6 +30,8 @@ Game.prototype.cardClicked = function(aCard) {
 
 Game.prototype.over = function() {
         confetti.start(5000);
+        gameOver = true;
+        setTableBackground(gameOver);
     }
     
 Game.prototype.stop = function() {
